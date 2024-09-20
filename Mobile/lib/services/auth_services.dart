@@ -9,8 +9,6 @@ import 'package:flutter_application_2/utilities/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:mailer/mailer.dart';
-import 'package:mailer/smtp_server.dart';
 
 class AuthService{
   void signUpUser({
@@ -122,7 +120,7 @@ Future<bool> verifyOtp(String email, String otp) async {
 Future<void> sendOtpEmail(String email, String otp) async {
     try {
         final response = await http.post(
-          Uri.parse('http://192.168.254.105:3000/send-email'), // Replace with your server IP
+          Uri.parse('${Constants.uri}/send-email'), // Replace with your server IP
           body: jsonEncode({
             'to': email,
             'subject': 'Your OTP Code',

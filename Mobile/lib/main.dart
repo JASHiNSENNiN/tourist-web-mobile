@@ -3,7 +3,6 @@ import 'package:flutter_application_2/providers/user_provider.dart';
 import 'package:flutter_application_2/screens/login_page.dart';
 import 'package:flutter_application_2/screens/profile_account.dart'; // Make sure to import other screens
 import 'package:provider/provider.dart';
-import '../services/otp_service.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -25,6 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
       ),
       // Define your routes here
+      home: const LoginPage(),
       initialRoute: '/login_page',
       routes: {
         '/login_page': (context) => const LoginPage(),

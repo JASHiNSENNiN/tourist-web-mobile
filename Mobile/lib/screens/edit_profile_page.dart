@@ -49,7 +49,7 @@ class _EditAccountPageState extends State<EditAccountPage> {
       } else {
         // Show error
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to update account')),
+          const SnackBar(content: Text('Failed to update account')),
         );
       }
     }

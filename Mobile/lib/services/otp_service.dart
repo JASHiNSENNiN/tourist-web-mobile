@@ -14,13 +14,13 @@ class OtpService {
 
   Future<void> storeOtp(String email, String otp) async {
     final now = DateTime.now();
-    final otpDoc = Otp(
+    /*final otpDoc = Otp(
       email: email,
       otp: otp,
       createdAt: now,
-    );
+    );*/
 
-    await _otpCollection.insertOne(otpDoc.toMap());
+    //FLawait _otpCollection.insertOne(otpDoc.toMap());
   }
 
   Future<bool> verifyOtp(String email, String otp) async {
@@ -34,7 +34,7 @@ class OtpService {
 
     final createdAt = otpDoc['createdAt'].toDate();
     final now = DateTime.now();
-    final expirationTime = Duration(minutes: 10);
+    final expirationTime = const Duration(minutes: 10);
 
     return now.isBefore(createdAt.add(expirationTime));
   }

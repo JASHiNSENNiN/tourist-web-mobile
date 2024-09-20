@@ -23,7 +23,7 @@ class OtpService {
     final result = await otpCollection.findOne(
       where.eq('email', email)
         .and(where.eq('otp', otp))
-        .and(where.gt('createdAt', DateTime.now().subtract(Duration(minutes: 5)))),
+        .and(where.gt('createdAt', DateTime.now().subtract(const Duration(minutes: 5)))),
     );
 
     return result != null;
